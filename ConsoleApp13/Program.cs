@@ -1,14 +1,9 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-using System.Diagnostics;
-using System.Xml.Linq;
-using System;
-
 import time
 import json
 import csv
 from datetime import date
 name=[]
-orudie = []
+orudie=[]
 def textSleep(text, num):
     print(text)
     time.sleep(num)
@@ -37,12 +32,12 @@ whattodo = { 1: "Что ты тут делаешь?", 2: "Кто ты такая
 print("выберите вариант ответа:1: Что ты тут делаешь? 2: Кто ты такая? 3: Напасть без вопросов ")
 a = int(input())
 if a == 1:
-    print("\"Я? Я тут живу, я тот кто помогает путникам, чтобы они не потерялись, но пока не об этом, какого твоё имя?\"")
+    print( "\"Я? Я тут живу, я тот кто помогает путникам, чтобы они не потерялись, но пока не об этом, какого твоё имя?\"")
     time.sleep(2)
     print("ведите своё имя:")
     time.sleep(2)
     name = input()
-    time.sleep(1)
+    time.sleep (1)
     print("\"Хорошее и славное имя:\"")
     time.sleep(1)
     print(name)
@@ -52,7 +47,7 @@ elif a==2:
     print("ведите своё имя:")
     time.sleep(2)
     name = input()
-    time.sleep(1)
+    time.sleep (1)
     print("Хорошее и славное имя:")
     print(name)
 elif a==3:
@@ -75,19 +70,20 @@ def save():
     name_saved = name
     orudie_saved = orudie
     save = {
-    "Name":name_saved,
+        "Name":name_saved,
         "trail":orudie_saved
     }
-with open('save.json','w+') as file:
-        json.dump(save, file)
-    print("Данные сохранены")
+    with open('save.json','w+') as file:
+        json.dump(save,file)
+    print ("Данные сохранены")
+    save()
 print("Выберите ответ: 1) да 2) нет")
 boish = int(input())
 if boish == 1:
     print(end())
     time.sleep(2)
     print("Девушка растворяется в воздухе... кажется вы упустили что то важное... игра закончена: ")
-    print(da[1])
+    print (da[1])
 if boish == 2:
     print("\"Это замечательно, такой как ты мне и нужен... понимаешь... в этом лесу уже давно водятся демоны... однако абсолютно недавно они выбрали себе короля\"")
     print("Девушка громко и тяжело выдыхает: \"Я могу отвести тебя туда, только прошу... помоги мне... иначе наш лес падёт \"")
@@ -97,7 +93,7 @@ if boish == 2:
         print(end())
         time.sleep(2)
         print("Вы слишком сильно боитесь... вы проиграли... ")
-        print(da[1])
+        print (da[1])
     if a == 1:
         print("\" Спасибо тебе большое! Тогда пойдём скорее! \" Девушка начала бежать, держа тебя за руку, приводя в выженную землю")
         time.sleep(1)
@@ -110,26 +106,27 @@ if boish == 2:
         print("Это был король демонов, тот громко дышал огнём, прожигая тебя огненым взглядом")
         time.sleep(1)
         print("\" Ты сам пришёл в мой дом! И сегодня ты умрёшь!\"")
-        print("\" Но сначала... как тебя зовут ещё раз, посмешище?)\"")
+        print ("\" Но сначала... как тебя зовут ещё раз, посмешище?)\"")
         time.sleep(2)
-        print("Введите имя:")
+        print ("Введите имя:")
         name = input()
         time.sleep(1)
-        print("\"А твоё оружие это?\"")
-        print("Какое у вас оружие")
+        print ("\"А твоё оружие это?\"")
+        print ("Какое у вас оружие")
         orudie = input()
         time.sleep(2)
         def load():
             with open('save.json','r')as file:
                 save = json.load(file)
-            inventory = save['name']
-            trail = save['orudie']
+            name_saved  = save['name']
+            orudie_saved = save['orudie']
             print("Данные загружены")
-        print("Выберите действие: 1) Попытаться убежать 2) Встать в оборонительную позу 3) Попытаться атаковать демона")
-        time.sleep(1)
 
+        load ()
+        print("Выберите действие: 1) Попытаться убежать 2) Встать в оборонительную позу 3) Попытаться атаковать демона")
+        time.sleep (1)
         q = int(input())
-        time.sleep(1)
+        time.sleep (1)
         if q == 1:
             print("Вы пытаетесь убежать")
             time.sleep(1)
@@ -140,8 +137,8 @@ if boish == 2:
             print("Последнее что вы слышите это то как демон громко смеётся над вами, а так же последние стуки вашего сердца")
             time.sleep(1)
             print("Вы умерли... ")
-            time.sleep(1)
-            print(da[1])
+            time.sleep (1)
+            print (da[1])
         if q == 3:
             print("Вы пытаетесь напасть на демона, однако кажется он этого и ждал")
             time.sleep(1)
@@ -154,8 +151,8 @@ if boish == 2:
             print("А вот появляетесь вы в аду, где вас будут пытать, пока вы не станите прислужником демонов")
             time.sleep(1)
             print("Вы стали марионеткой демонов... ")
-            time.sleep(1)
-            print(da[1])
+            time.sleep (1)
+            print (da[1])
         if q == 2:
             print("Вы защищаетесь, закрываясь оружием от демона, что налетает на вас, вы стойко держитесь, хоть и земля под вами немного вскапывается, но вы хотя бы держитесь на ногах")
             time.sleep(1)
@@ -172,7 +169,7 @@ if boish == 2:
                 print("Однако вы теряете равновесие... вы падаете и демон недолго думая просто убивает вас...")
                 time.sleep(1)
                 print("Вы умерли... ")
-                print(da[1])
+                print (da[1])
                 time.sleep(1)
             if e == 2:
                 print("Вы сбиваете демона с ног")
@@ -185,9 +182,9 @@ if boish == 2:
                 time.sleep(1)
                 print("И вы впервые видите как демон боиться")
                 time.sleep(1)
-                print("Он пытается умолять пощадить его, не убивать...")
-                time.sleep(1)
-                print("Однако финальное решение кажется только за вами...")
+                print ("Он пытается умолять пощадить его, не убивать...")
+                time.sleep (1)
+                print ("Однако финальное решение кажется только за вами...")
                 print("Выберите действие: 1) Убить демона 2) Пощадть демона")
                 time.sleep(1)
                 f = int(input())
@@ -206,13 +203,13 @@ if boish == 2:
                     time.sleep(1)
                     print("В вашу честь закатили праздник")
                     time.sleep(1)
-                    print(da[0])
+                    print (da[0])
                     time.sleep(1)
                 if f == 2:
                     print("Вы щадите демона, тот почти сразу предлагает контракт")
                     time.sleep(1)
-                    print("Вы долго его читаете, пытаясь заметить подвох... однако такового не оказалось")
-                    time.sleep(1)
+                    print ("Вы долго его читаете, пытаясь заметить подвох... однако такового не оказалось")
+                    time.sleep (1)
                     print("Вы заключаете контракт с демоном и тот теперь становится вашим слугой")
                     time.sleep(1)
                     print("Возвращаясь к магу, вы видите как он боиться посмотреть на демона")
@@ -221,8 +218,8 @@ if boish == 2:
                     time.sleep(1)
                     print("Тот восхваляет ваши подвиги, похлопав вам")
                     time.sleep(1)
-                    print("Вы быстро доедаете свою прекрасно приготовленную еду")
-                    time.sleep(1)
+                    print ("Вы быстро доедаете свою прекрасно приготовленную еду")
+                    time.sleep (1)
                     print("После этого вы довольные идёте в деревушку рядом")
                     time.sleep(1)
                     print("Оказалось что этот демон уже давно мучал жителей этой деревни")
@@ -237,7 +234,7 @@ if boish == 2:
                     time.sleep(1)
                     print("Демон начинает понимать, что добро это не всегда плохо")
                     time.sleep(1)
-                    print(conc())
+                    print( conc())
                     time.sleep(1)
                     def save_csv():
                         name_saved = name
@@ -245,16 +242,13 @@ if boish == 2:
                         save = [
                             [date.today(), name_saved, orudie_saved]
                         ]
-                        with open("save.csv",'w+', newline= '') as file:
+                        with open("save.csv",'w+',newline='') as file:
                              writer = csv.writer(file)
-                    print("Удаление данных")
-                    with open('nested.json', 'r') as file:
-                        data = json.load(file)
-                    del data["address"]["zip"]
-with open('nested.json', 'w' ) as file:
-                        json.dump(data, file, indent = 4)
-
-
-
-
+                    save_csv()
+                    print ("Удаление данных")
+                    with open ('nested.json', 'r') as file:
+                        data = json.load (file)
+                    del data ["address"]["zip"]
+                    with open ('nested.json', 'w' ) as file:
+                        json.dump (data, file, indent =4)
 
