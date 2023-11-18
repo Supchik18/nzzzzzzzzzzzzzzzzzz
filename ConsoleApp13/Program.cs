@@ -71,7 +71,7 @@ def save():
     orudie_saved = orudie
     save = {
         "Name":name_saved,
-        "trail":orudie_saved
+        "orudie":orudie_saved
     }
     with open('save.json','w+') as file:
         json.dump(save,file)
